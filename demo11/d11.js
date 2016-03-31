@@ -22,7 +22,7 @@ var UserGist = React.createClass({
 				{
 					this.state.collection.map(function(val,index){
 						return <p key={val.time}><a href={val.url}>This URL</a> is created at {val.time}.</p>
-					}.bind(this))
+					})
 				}
 			</div>
 		);
