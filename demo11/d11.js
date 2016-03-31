@@ -1,19 +1,16 @@
 var UserGist = React.createClass({
 	getInitialState: function() {
 		return {
-			url: [],
-			time: []
+			collection: []
 		};
 	},
 
 	componentDidMount: function() {
 		$.get(this.props.source, function(result) {
-			var urlArr = result.map(function(item){return item.comments_url}),
-				tiemArr = result.map(function(item){return item.created_at});
+			var Arr = result.map(function(item){return {url:item.comments_url,time:item.created_at}});
 			if (this.isMounted()) {
 				this.setState({
-					url: urlArr,
-					time: tiemArr
+					collection: Arr
 				});
 			}
 		}.bind(this));
@@ -23,8 +20,8 @@ var UserGist = React.createClass({
 		return (
 			<div>
 				{
-					this.state.url.map(function(val,index){
-						return <p><a href={val}>This URL</a> is created at {this.state.time[index]}.</p>
+					this.state.collection.map(function(val,index){
+						return <p key={val.time}><a href={val.url}>This URL</a> is created at {val.time}.</p>
 					}.bind(this))
 				}
 			</div>
