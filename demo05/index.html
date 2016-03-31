@@ -6,29 +6,10 @@
     <script src="../build/browser.min.js"></script>
   </head>
   <body>
-    <script type="text/babel">
-      var NotesList = React.createClass({
-        render: function() {
-          return (
-            <ol>
-              {
-                React.Children.map(this.props.children, function (child) {
-                  return <li>{child}</li>;
-                })
-              }
-            </ol>
-          );
-        }
-      });
+    <div id="content">
 
-      ReactDOM.render(
-        <NotesList>
-          <span>hello</span>
-          <span>world</span>
-        </NotesList>,
-        document.body
-      );
-    </script>
+    </div>
+    <script type="text/babel" src="d4.js"></script>
   </body>
 </html>
 
